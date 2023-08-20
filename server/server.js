@@ -6,6 +6,7 @@ const http = require('http');
 const app = express();
 const server = http.createServer(app);
 const users = require('./routes/users');
+const games = require('./routes/games');
 
 
 const PORT = process.env.PORT || config.get('serverPort');
@@ -14,7 +15,7 @@ const PORT = process.env.PORT || config.get('serverPort');
 app.use(corsMiddleware);
 app.use(express.json());
 app.use('/users', users);
-
+app.use('/games', games);
 
 const start = async () => {
     try {

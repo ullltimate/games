@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
 import { addName } from './api/user';

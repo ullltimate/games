@@ -1,33 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { addName } from './api/user';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [name, setName] = useState('');
+	const navigate = useNavigate();
+
+	useEffect(()=>{
+		if(localStorage.getItem('userName')){
+			navigate('/games');
+		}
+	},[])
+
+	async function newGame(e:any){
+		e.preventDefault();
+		if(name){
+			await addName(name);
+			navigate('/games');
+		}
+	}
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+	<Container>
+		<Row style={{ height: '100vh' }} className='align-items-center'>
+			<Col>
+				<Card border="success" style={{ width: '20rem' }} className='p-3 mx-auto text-center'>
+      				<Card.Body>
+					  	<Form onSubmit={newGame}>
+    					  	<Form.Group className="mb-3 text-start" controlId="formBasicEmail">
+    					  	  <Form.Label>Your name:</Form.Label>
+    					  	  <Form.Control type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)}/>
+    					  	</Form.Group>
+    					  	<Button variant="success" type="submit">
+    					  	  New game
+    					  	</Button>
+    					</Form>
+      				</Card.Body>
+    			</Card>
+			</Col>
+		</Row>
+	</Container>
     </>
   )
 }

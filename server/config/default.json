@@ -1,0 +1,4 @@
+{
+    "serverPort": 5000,
+    "dbUrl": "mongodb+srv://ullltimate:qwert12345@cluster0.zyw2vmy.mongodb.net/project-games?retryWrites=true&w=majority"
+}

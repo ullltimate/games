@@ -18,12 +18,12 @@ function ChooseGame() {
 
   	return (
   	  <>
-			<Container>
-  	          	<h1 className="m-3"><i className="bi bi-controller me-3"></i>Choose games</h1>
-  	          	<Row className="justify-content-between">
-					{games.map((el) => <CardGame key={el._id} name={el.gameName} descr={el.description} img={el.img}/>)}
-  	          	</Row>
-		    </Container>
+		<Container>
+  	      	<h1 className="m-3"><i className="bi bi-controller me-3"></i>Choose games</h1>
+  	      	<Row className="justify-content-between">
+				{games.map((el) => <CardGame key={el._id} name={el.gameName} descr={el.description} img={el.img}/>)}
+  	      	</Row>
+		</Container>
   	  </>
   	)
 }

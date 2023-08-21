@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import ErrorPage from './components/ErrorPage.tsx';
 import ChooseGame from './components/ChooseGame.tsx';
+import TttGame from './components/tttGame.tsx';
+import RpsGame from './components/rpsGame.tsx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,16 @@ const router = createBrowserRouter([
   {
     path: "/games",
     element: <ChooseGame />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/tic-tac-toe",
+    element: <TttGame />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/rock-paper-scissors",
+    element: <RpsGame />,
     errorElement: <ErrorPage />
   },
 ]);

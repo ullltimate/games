@@ -1,4 +1,5 @@
 import { Button, Card, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 function CardGame(props: any) {
 
@@ -12,7 +13,9 @@ function CardGame(props: any) {
         	  	    <Card.Text className="text-justify">{props.descr}</Card.Text>
         	  	</Card.Body>
                 <Card.Footer className="bg-transparent">
-                    <Button variant="success">Start game</Button>
+                    <Link to={`/${props.name}`}>
+                      <Button variant="success">Start game <i className="bi bi-joystick"></i></Button>
+                    </Link>
                 </Card.Footer>
         	</Card>
         </Col>
